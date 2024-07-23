@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zee's Health</title>
+    <style>
+    body {
+    background-color: #8d3085; 
+    /* display: table-column; */
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+}
+.container {
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    width: 50%; 
+    text-align: center; 
+}
+h1 {
+  color: #333; 
+}
+p {
+  margin-bottom: 20px; 
+}
+a {
+  text-decoration: none; 
+  color: #007bff; 
+}
+a:hover {
+  text-decoration: underline; 
+}
+input[type="text"], input[type="password"] {
+  width: 100%; 
+  padding: 10px; 
+  margin-bottom: 20px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+}
+button[type="submit"] {
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+}
+button[type="submit"]:hover {
+  background-color: #0069d9; 
+}
+    </style>
+</head>
+<body>
+  <%- include('./partials/_navbar.ejs') %>
+  <h1>ZeeHealth</h1>
+  <p>Book your doctor's appoint.</p>
+</body>
+</html>
+
+          
