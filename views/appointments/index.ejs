@@ -9,5 +9,11 @@
     <%- include('../partials/_navbar.ejs') %>
   <h1>Your appointments</h1>
   <a href="/users/<%= user._id %>/appointments/new">Creat an appointment</a>
+  <ul>
+    <% appointments.forEach((appointment)=>{ %>
+      <li>
+        <%= appointments.name %> at <%= appointments.appointments %></li>
+    <% }) %>
+  </ul>
 </body>
 </html>
