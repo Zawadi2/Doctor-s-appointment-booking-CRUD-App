@@ -6,7 +6,8 @@
   <title>Your appointments</title>
 </head>
 <body>
-    <%- include('./partials/_navbar.ejs') %>
+    <%- include('../partials/_navbar.ejs') %>
   <h1>Your appointments</h1>
+  <a href="/users/<%= user._id %>/appointments/new">Creat an appointment</a>
 </body>
 </html>

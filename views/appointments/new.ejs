@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <%- include('./partials/_navbar.ejs') %>
+    <h1>New Appointment</h1>
+    <form action="/users/<%= user._id %>/appointments" method="POST">
+    
+    <label for="name">Name:</label>
+    <input type="text" name="name" id=" name">
+    
+    <label for="Email">Email:</label>
+    <input type="text" name="Email" id="Email">
+    
+    <label for="Phone">Phone:</label>
+    <textarea name="phone" id="phone"></textarea>
+    
+    <label for="appointmentDate">appointmentDate:</label>
+    <input type="appointmentDate" name="appointmentDate" id="appointmentDate">
+    
+    <label for="appointmentTime">appointmentTime:</label>
+    <input type="appointmentTime" name="appointmentTime" id="appointmentTime">
+  </input>
+    
+    <button type="submit">Add appointment</button>
+  </form>
+
+    
+ </body>
+ 
