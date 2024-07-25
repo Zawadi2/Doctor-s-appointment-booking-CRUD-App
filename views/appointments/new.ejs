@@ -1,34 +1,31 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
- </head>
- <body>
+    <title>New Appointment</title>
+</head>
+<body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>New Appointment</h1>
     <form action="/users/<%= user._id %>/appointments" method="POST">
-    
-    <label for="name">Name:</label>
-    <input type="text" name="name" id=" name">
-    
-    <label for="Email">Email:</label>
-    <input type="text" name="Email" id="Email">
-    
-    <label for="Phone">Phone:</label>
-    <textarea name="phone" id="phone"></textarea>
-    
-    <label for="appointmentDate">appointmentDate:</label>
-    <input type="appointmentDate" name="appointmentDate" id="appointmentDate">
-    
-    <label for="appointmentTime">appointmentTime:</label>
-    <input type="appointmentTime" name="appointmentTime" id="appointmentTime">
-  </input>
-    
-    <button type="submit">Add appointment</button>
-  </form>
-
-    
- </body>
- 
+        <select id="doctor">
+            <option value="">Select a doctor</option>
+            <% doctor.forEach((doctor) => { %>
+                <option value="<%= doctor._id %>"><%= doctor.name %></option>
+            <% }); %>
+        </select>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+        <label for="phone">Phone:</label>
+        <textarea name="phone" id="phone"></textarea>
+        <label for="appointmentDate">Appointment Date:</label>
+        <input type="date" name="appointmentDate" id="appointmentDate">
+        <label for="appointmentTime">Appointment Time:</label>
+        <input type="time" name="appointmentTime" id="appointmentTime">
+        <button type="submit">Add appointment</button>
+    </form>
+</body>
+</html>
