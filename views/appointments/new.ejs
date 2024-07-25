@@ -11,9 +11,13 @@
     <form action="/users/<%= user._id %>/appointments" method="POST">
         <select id="doctor">
             <option value="">Select a doctor</option>
-            <% doctor.forEach((doctor) => { %>
-                <option value="<%= doctor._id %>"><%= doctor.name %></option>
-            <% }); %>
+            <% if (doctors) { %>
+                <% doctors.forEach((doctor) => { %>
+                    <option value="<%= doctor._id %>"><%= doctor.name %></option>
+                <% }); %>
+            <% } else { %>
+                <option value="">No doctors available</option>
+            <% } %>
         </select>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name">
