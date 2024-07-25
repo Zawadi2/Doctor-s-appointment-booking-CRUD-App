@@ -67,3 +67,4 @@ app.use('/users/:userId/appointments', appointmentsController);
     console.log(`The express app is ready on port ${port}!`);
 });
   
+const PORT = process.env.PORT ? process.env.PORT : '3000'
