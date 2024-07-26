@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 // create -> Get
 router.get('/new', async (req, res) => {
   const doctors = await Doctor.find()
+  console.log(doctors)
   res.render('appointments/new.ejs', { doctors });
 });
  
@@ -59,6 +60,27 @@ router.get('/:appointmentId', async (req, res) => {
   } catch (error) {
     console.log(error);
     res.redirect('/')
+  }
+});
+
+router.post('/', async (req, res) => {
+  req.body.patientid = req.session.user._id;
+  await Listing.create(req.body);
+  res.redirect('/');
+});
+
+// controllers/listings.js
+
+router.get('/', async (req, res) => {
+  try {
+    const populatedDoctors = await Doctors.find({}).populate('pantientid');
+
+    res.render('doctors/index.ejs',{
+      doctors: populatedDoctors, 
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
   }
 });
 

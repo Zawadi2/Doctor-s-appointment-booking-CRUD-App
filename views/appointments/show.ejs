@@ -7,14 +7,14 @@
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1><%= appointments.name %></h1>
-    <% if (appointments.name) { %>
+    <h1>A doctor in <%= doctor.name %></h1>
+    <h2>patient</h2>
+    <% if (doctor.patientid._id === user._id) { %>
+        <p>This is your appointment!</p>
+    <% } else { %>
+        <p>Appointment not available, <%= doctor.patientid.username %> does!</p>
         <p>Appointment Date: <%= appointments.appointmentDate %></p>
         <p>Appointment Time: <%= appointments.appointmentTime %></p>
-        <p>Doctor: <%= appointments.doctor %></p>
-        <p>Patient: <%= appointments.name %></p>
-    <% } else { %>
-        <p>No appointment data available</p>
     <% } %>
 </body>
 </html>

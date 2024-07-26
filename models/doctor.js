@@ -21,6 +21,10 @@ const doctorsSchema = new mongoose.Schema(
       photo: {
         type: String,
         required: true
+      },
+      patientid: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
       }
     }
   );
