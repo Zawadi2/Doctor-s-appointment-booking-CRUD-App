@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/user.js');
-const Doctor = require('../models/doctor.js')
-// const doctors = require('../seed.js')
+const Doctor = require('../models/doctor.js');
+const doctors = require('../seed.js');
+
 
 
 // Index
@@ -40,22 +41,14 @@ router.post('/', async (req, res) => {
     }
   }); 
 
-// router.get("/doctors/seed", (req, res) => {
-//   Doctor.deleteMany({}).then((data) => {
-//     Doctor.create(doctors)
-//       .then((data) => {
-//         res.json(data)
-//       })
-//   })
-// })
-// controllers/applications.js
 
 router.get('/:appointmentId', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
     const appointment= currentUser.appointments.id(req.params.appointmentId);
+    const doctors = await Doctor.find({patientid: req.session.user._id})
     res.render('appointments/show.ejs', {
-      appointments: appointment,
+      appointments: appointment, doctors: doctors
     });
   } catch (error) {
     console.log(error);
@@ -63,26 +56,6 @@ router.get('/:appointmentId', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
-  req.body.patientid = req.session.user._id;
-  await Doctor.create(req.body);
-  res.redirect('/');
-});
-
-// controllers/listings.js
-
-router.get('/', async (req, res) => {
-  try {
-    const populatedDoctors = await Doctors.find({}).populate('pantientid');
-
-    res.render('doctors/index.ejs',{
-      doctors: populatedDoctors, 
-    });
-  } catch (error) {
-    console.log(error);
-    res.redirect('/');
-  }
-});
 
 
 module.exports = router;
