@@ -5,7 +5,6 @@ const doctors =[
     specialty: 'Cardiology',
     availability: ['Monday', 'Wednesday', 'Friday'],
     photo: 'https://images.app.goo.gl/ezZavSaRmsPAabMW9'
-  
   },
   {
     id: 2,
@@ -13,8 +12,6 @@ const doctors =[
     specialty: 'Pediatrics',
     availability: ['Tuesday', 'Thursday'],
     photo:'https://images.app.goo.gl/kLinpixCtpEo7EVj9'
-  
-
   },
   {
       id: 3,
@@ -22,7 +19,6 @@ const doctors =[
       specialty: 'Dermatology',
       availability: ['Monday', 'Wednesday', 'Friday'],
       photo:'https://images.app.goo.gl/h52VDhhVtPYXkJkB6'
-  
     },
     {
       id: 4,
@@ -30,7 +26,6 @@ const doctors =[
       specialty: 'Orthopedic Surgery',
       availability: ['Tuesday', 'Thursday'],
       photo: 'https://images.app.goo.gl/JvCmhtgn6Pr8DqpMA'
-  
     },
     {
       id: 5,
@@ -38,7 +33,6 @@ const doctors =[
       specialty: 'Obstetrics and Gynecology',
       availability: ['Monday', 'Wednesday', 'Friday'],
       photo:'https://images.app.goo.gl/W4vWvvd7izeH864w5'
-  
     },
     {
       id: 6,
@@ -46,7 +40,6 @@ const doctors =[
       specialty: 'Pediatrics',
       availability: ['Tuesday', 'Thursday'],
       photo: 'https://images.app.goo.gl/GeSbKm7J8GqsyTEb8'
-
     },
     {
       id: 7,
@@ -67,7 +60,7 @@ const doctors =[
       name: 'Dr. Sarah Taylor',
       specialty: 'Psychiatry',
       availability: ['Monday', 'Wednesday', 'Friday'],
-      phot:'https://images.app.goo.gl/Noz1yoj8En9jpaf69'
+      photo:'https://images.app.goo.gl/Noz1yoj8En9jpaf69'
     },
     {
       id: 10,
@@ -82,15 +75,14 @@ const doctors =[
       name: 'Dr. Lisa Nguyen',
       specialty: 'Gastroenterology',
       availability: ['Monday', 'Wednesday', 'Friday'],
-      phto:'https://images.app.goo.gl/Gs5n44WHgUSF5jty5'
+      photo:'https://images.app.goo.gl/Gs5n44WHgUSF5jty5'
     },
     {
       id: 12,
       name: 'Dr. Brian Brown',
       specialty: 'Neurology',
       availability: ['Tuesday', 'Thursday'],
-     photo: 'https://images.app.goo.gl/NzSsYpQinUbBhXvv6'
-      
+     photo: 'https://images.app.goo.gl/NzSsYpQinUbBhXvv6' 
     }
   ];
 

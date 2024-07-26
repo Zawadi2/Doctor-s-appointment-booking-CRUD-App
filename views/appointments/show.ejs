@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointment Details</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1><%= appointments.name %></h1>
+    <% if (appointments.name) { %>
+        <p>Appointment Date: <%= appointments.appointmentDate %></p>
+        <p>Appointment Time: <%= appointments.appointmentTime %></p>
+        <p>Doctor: <%= appointments.doctor %></p>
+        <p>Patient: <%= appointments.name %></p>
+    <% } else { %>
+        <p>No appointment data available</p>
+    <% } %>
+</body>
+</html>

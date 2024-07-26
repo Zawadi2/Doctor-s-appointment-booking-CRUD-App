@@ -1,22 +1,29 @@
+// const { link } = require("../controllers/appointments");
+const mongoose = require("mongoose");
+
 const doctorsSchema = new mongoose.Schema(
     {
-      userId: {
+      id: {
+        type: Number,
+      },
+      name: {
         type: String,
+        required: true,
       },
-      Name: {
+      specialty: {
         type: String,
-        required: [true, " full name is required"],
+        required: true,
       },
-      specialization: {
+      availability: {
+        type: [String],
+        required: true,
+      },
+      photo: {
         type: String,
-        required: [true, "specialization is require"],
-      },
-      availibility: {
-        type: Object,
-        required: [true, "wrok timing is required"],
-      },
+        required: true
+      }
     }
   );
-const User = mongoose.model("Doctor", doctorsSchema);
+const Doctor = mongoose.model("Doctor", doctorsSchema);
 
 module.exports = Doctor;

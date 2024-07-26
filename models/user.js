@@ -5,21 +5,21 @@ const appointmentSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  Email: {
+  email: {
     type: String, 
-    required: true
+    required: false
   },
-  Phone: {
+  phone: {
     type: String,
-    required: true
+    required: false
   },
   appointmentDate: {
     type:Date,
-    required: true
+    required: false
   },
   appointmentTime: {
     type: String,
-    required: true
+    required: false
   }
 })
 

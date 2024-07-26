@@ -9,22 +9,22 @@
     <%- include('../partials/_navbar.ejs') %>
     <h1>New Appointment</h1>
     <form action="/users/<%= user._id %>/appointments" method="POST">
+        <% if (doctors) { %>
         <select id="doctor">
             <option value="">Select a doctor</option>
-            <% if (doctors) { %>
                 <% doctors.forEach((doctor) => { %>
                     <option value="<%= doctor._id %>"><%= doctor.name %></option>
                 <% }); %>
-            <% } else { %>
-                <option value="">No doctors available</option>
-            <% } %>
         </select>
+        <% } else { %> 
+            <p>No doctors found. Please add a doctor first.</p>
+        <% } %>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name">
         <label for="email">Email:</label>
         <input type="text" name="email" id="email">
         <label for="phone">Phone:</label>
-        <textarea name="phone" id="phone"></textarea>
+        <input name="phone" id="phone">
         <label for="appointmentDate">Appointment Date:</label>
         <input type="date" name="appointmentDate" id="appointmentDate">
         <label for="appointmentTime">Appointment Time:</label>

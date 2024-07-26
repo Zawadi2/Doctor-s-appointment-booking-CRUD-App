@@ -7,12 +7,15 @@
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-  <h1>Your appointments</h1>
-  <a href="/users/<%= user._id %>/appointments/new">Creat an appointment</a>
+  <h1>Book appointments</h1>
+  <a href="/users/<%= user._id %>/appointments/new">Book Here</a>
   <ul>
     <% appointments.forEach((appointment)=>{ %>
       <li>
-        <%= appointment.name %> at <%= appointment.appointmentDate %> at <%= appointment.appointmentTime %></li>
+        <a href="/users/<%= user._id %>/appointments/<%= appointment._id %>">
+        <%= appointment.name %> at <%= appointment.appointmentDate %> at <%= appointment.appointmentTime %>
+        </a>
+      </li>
     <% }) %>
   </ul>
 </body>
