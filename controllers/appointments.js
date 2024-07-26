@@ -65,7 +65,7 @@ router.get('/:appointmentId', async (req, res) => {
 
 router.post('/', async (req, res) => {
   req.body.patientid = req.session.user._id;
-  await Listing.create(req.body);
+  await Doctor.create(req.body);
   res.redirect('/');
 });
 

@@ -9,12 +9,14 @@
     <%- include('../partials/_navbar.ejs') %>
     <h1>A doctor in <%= doctor.name %></h1>
     <h2>patient</h2>
-    <% if (doctor.patientid._id === user._id) { %>
-        <p>This is your appointment!</p>
-    <% } else { %>
-        <p>Appointment not available, <%= doctor.patientid.username %> does!</p>
+    <% if (doctor.patientid._id.equals(user._id)) { %>
+        <p>You own this!</p>
+      <% } else { %>
+        <p>Appointment not available, <%= doctor.patientid.username %> here!</p>
         <p>Appointment Date: <%= appointments.appointmentDate %></p>
         <p>Appointment Time: <%= appointments.appointmentTime %></p>
+        <p>appointment not booked, <%= doctor.patientid.username %> here!</p>
+    
     <% } %>
 </body>
 </html>
