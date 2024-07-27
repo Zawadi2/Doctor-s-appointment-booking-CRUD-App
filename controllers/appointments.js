@@ -33,6 +33,9 @@ router.post('/', async (req, res) => {
     const currentUser = await User.findById(req.session.user._id);
     currentUser.appointments.push(req.body);
     await currentUser.save();
+    const doctor = await Doctor.findById(req.body.doctor)
+    doctor.patientid.push(req.session.user._id)
+    await doctor.save();
 
         res.redirect(`/users/${currentUser._id}/appointments`);
   } catch (error) {
@@ -47,12 +50,28 @@ router.get('/:appointmentId', async (req, res) => {
     const currentUser = await User.findById(req.session.user._id);
     const appointment= currentUser.appointments.id(req.params.appointmentId);
     const doctors = await Doctor.find({patientid: req.session.user._id})
+    console.log(doctors)
     res.render('appointments/show.ejs', {
       appointments: appointment, doctors: doctors
     });
   } catch (error) {
     console.log(error);
     res.redirect('/')
+  }
+});
+
+router.delete('/:appointmentId', async (req, res) => {
+  try {
+    const appointment = await appointment.findById(req.params.appointmentId);
+    if (appointment.patientid.equals(req.session.user._id)) {
+      await appointment.deleteOne();
+      res.redirect('/appointments');
+    } else {
+      res.send("Sorry, you can't do that.");
+    }
+  } catch (error) {
+    console.error(error);
+    res.redirect('/');
   }
 });
 

@@ -9,12 +9,16 @@
     <%- include('../partials/_navbar.ejs') %>
     <h1><%= appointments.name %></h1>
     <% doctors.forEach((doctor) => { %>
-        <option value="<%= doctor._id %>"><%= doctor.name %></option>
+        <p>Doctor: <%= doctor.name %></p>
     <% }); %>
         <p>Appointment Date: <%= appointments.appointmentDate %></p>
         <p>Appointment Time: <%= appointments.appointmentTime %></p>
-        <p>Doctor: <%= doctors._id %></p>
         <p>Patient: <%= appointments.name %></p>
+
+    <form action="/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete this appointment</button>
+    </form>
+    
     
 </body>
 </html>

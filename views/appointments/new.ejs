@@ -10,7 +10,7 @@
     <h1>New Appointment</h1>
     <form action="/users/<%= user._id %>/appointments" method="POST">
         <% if (doctors) { %>
-        <select id="doctor">
+        <select id="doctor" name="doctor">
             <option value="">Select a doctor</option>
                 <% doctors.forEach((doctor) => { %>
                     <option value="<%= doctor._id %>"><%= doctor.name %></option>
