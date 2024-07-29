@@ -3,69 +3,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zee's Health</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: ('https://images.app.goo.gl/Wvu3PtZ8sEF1wgYLA');
-            background-size: cover;
-            background-position: center;
-        }
-        header {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-        }
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        p {
-            text-align: center;
-        }
-        a {
-            text-decoration: none;
-            color: #007BFF;
-        }
-        .registration-form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>ZeeHealth</title>
 </head>
-<body>
-    <header>
-        <%- include('./partials/_navbar.ejs') %>
-        <nav>
-            <a href="/auth/sign-up">Sign up</a>
-            <a href="/auth/sign-in">Sign in</a>
-        </nav>
-    </header>
-    <main>
-        <div class="registration-form">
-            <h1>ZeeHealth</h1>
-            <p>Book your doctor's appointment.</p>
-        </div>
-    </main>
-</body>
-</html>
+<body class="index-body">
+    <%- include('./partials/_navbar.ejs') %>
+    <div class="index-container">
+      <div class="text-container">
+        <h1 class="main-header">ZeeHealth</h1>
+        <p class="subheader">A Doctor's appointment booking application.</p>
+      </div>
+      <div class="auth-links">
+        <a class="signup-link" href="/auth/sign-up">Sign Up</a>
+        <a class="signin-link" href="/auth/sign-in">Sign In</a>
+      </div>
+    </div>
+  </body>
+  </html>
+  

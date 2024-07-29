@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Editing <%= appointment.name %></title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <div class="edit-body">
+    <h1>Edit <%= appointment.name %></h1>
+    <form 
+    action="/users/<%= user._id %>/appointments/<%= appointment._id %>?_method=PUT" method="POST" >
+    <% if (doctors) { %>
+        <select id="doctor" name="doctor">
+            <option value="">Select a doctor</option>
+            <% doctors.forEach((doctor) => { %>
+                <option value="<%= doctor._id %>" <%= appointment.doctorId === doctor._id ? 'selected' : '' %>><%= doctor.name %></option>
+            <% }); %>
+        </select>
+    <% } else { %>
+        <p>No doctors found. Please add a doctor first.</p>
+    <% } %>
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<%= appointment.name %>">
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email" value="<%= appointment.email %>">
+    <label for="phone">Phone:</label>
+    <input name="phone" id="phone" value="<%= appointment.phone %>">
+    <label for="appointmentDate">Appointment Date:</label>
+    <input type="date" name="appointmentDate" id="appointmentDate" value="<%= appointment.appointmentDate %>">
+    <label for="appointmentTime">Appointment Time:</label>
+    <input type="time" name="appointmentTime" id="appointmentTime" value="<%= appointment.appointmentTime %>">
+    <button type="submit">Edit appointment</button>
+</form>
+</div>
+</body>
+</html>

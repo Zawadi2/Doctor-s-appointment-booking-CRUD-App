@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>New Appointment</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>New Appointment</h1>
-    <form action="/users/<%= user._id %>/appointments" method="POST">
+    <div class="new-body">
+     <form action="/users/<%= user._id %>/appointments" method="POST">
         <% if (doctors) { %>
         <select id="doctor" name="doctor">
             <option value="">Select a doctor</option>
@@ -29,7 +31,9 @@
         <input type="date" name="appointmentDate" id="appointmentDate">
         <label for="appointmentTime">Appointment Time:</label>
         <input type="time" name="appointmentTime" id="appointmentTime">
+        
         <button type="submit">Add appointment</button>
     </form>
+    </div>
 </body>
 </html>

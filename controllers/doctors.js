@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
   
   router.get('/', async (req, res) => {
     try {
-      const populatedDoctors = await Doctors.find({}).populate('pantientid');
+      const populatedDoctors = await Doctors.find({}).populate('patientid');
   
       res.render('doctors/index.ejs',{
         doctors: populatedDoctors, 

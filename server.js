@@ -16,6 +16,7 @@ const appointmentsController = require('./controllers/appointments.js');
 const doctorsController = require('./controllers/doctors.js')
 
 const port = process.env.PORT ? process.env.PORT : "3000";
+const path = require('path');
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -27,6 +28,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(morgan('dev'));
 app.use(session({

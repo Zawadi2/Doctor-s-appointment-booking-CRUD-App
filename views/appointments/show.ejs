@@ -3,22 +3,35 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/show.css" />
+
     <title>Appointment Details</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1><%= appointments.name %></h1>
+    <div class="show-body">
+    <div class="show-header">
+    <h1><%= appointment.name %></h1>
     <% doctors.forEach((doctor) => { %>
         <p>Doctor: <%= doctor.name %></p>
     <% }); %>
-        <p>Appointment Date: <%= appointments.appointmentDate %></p>
-        <p>Appointment Time: <%= appointments.appointmentTime %></p>
-        <p>Patient: <%= appointments.name %></p>
-
-    <form action="/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete this appointment</button>
+        <p>Appointment Date: <%= appointment.appointmentDate %></p>
+        <p>Appointment Time: <%= appointment.appointmentTime %></p>
+        <p>Patient: <%= appointment.name %></p>
+    <div class="show-sidebar">
+        <div class="show-actions">
+  <a href="/users/<%= user._id %>/appointments/<%= appointment._id %>/edit">
+    Edit this application
+  </a>
+    <form
+    action="/users/<%= user._id %>/appointments/<%= appointment._id %>?_method=DELETE"
+    method="POST">
+    <button type="submit">Delete this appointment</button>
     </form>
-    
-    
+</div>
+</div>
+ </div>
+ </div>    
 </body>
 </html>

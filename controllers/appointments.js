@@ -52,7 +52,7 @@ router.get('/:appointmentId', async (req, res) => {
     const doctors = await Doctor.find({patientid: req.session.user._id})
     console.log(doctors)
     res.render('appointments/show.ejs', {
-      appointments: appointment, doctors: doctors
+      appointment: appointment, doctors: doctors
     });
   } catch (error) {
     console.log(error);
@@ -62,19 +62,49 @@ router.get('/:appointmentId', async (req, res) => {
 
 router.delete('/:appointmentId', async (req, res) => {
   try {
-    const appointment = await appointment.findById(req.params.appointmentId);
-    if (appointment.patientid.equals(req.session.user._id)) {
+    const currentUser = await User.findById(req.session.user._id);
+    const appointment= currentUser.appointments.id(req.params.appointmentId);
+    console.log(appointment)
       await appointment.deleteOne();
-      res.redirect('/appointments');
-    } else {
-      res.send("Sorry, you can't do that.");
-    }
+      await currentUser.save()
+      res.redirect(`/users/${currentUser._id}/appointments`);
   } catch (error) {
     console.error(error);
     res.redirect('/');
   }
 });
 
+router.get('/:appointmentId/edit', async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+    const appointment = currentUser.appointments.id(req.params.appointmentId);
+    const doctors = await Doctor.find({patientid: req.session.user._id})
+    res.render('appointments/edit.ejs', {
+      appointment: appointment, doctors: doctors
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/')
+  }
+});
+
+router.put('/:appointmentId', async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+    const appointment = currentUser.appointments.id(req.params.appointmentId);
+    // const doctors = await Doctor.find({patientid: req.session.user._id})
+    appointment.set(req.body);
+    // doctors.set(req.body);
+    await currentUser.save();
+    
+    res.redirect(
+      `/users/${currentUser._id}/appointments/${req.params.appointmentId}`
+    );
+  } catch (error) {
+    console.log(error);
+    res.redirect('/')
+  }
+});
 
 
 module.exports = router;

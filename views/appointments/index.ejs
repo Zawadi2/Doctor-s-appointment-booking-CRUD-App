@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
   <title>Your appointments</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-  <h1>Book appointments</h1>
-  <a href="/users/<%= user._id %>/appointments/new">Book Here</a>
+    <div class="all-apps-body">
+      <div class="all-apps-header">
+      <h1>Book appointments</h1>
+      <a href="/users/<%= user._id %>/appointments/new">Book Here</a>
+    </div>
   <ul>
     <% appointments.forEach((appointment)=>{ %>
       <li>
@@ -18,5 +22,6 @@
       </li>
     <% }) %>
   </ul>
+  </div>
 </body>
 </html>
