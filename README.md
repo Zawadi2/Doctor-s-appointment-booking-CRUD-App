@@ -8,7 +8,7 @@ As someone who has experienced the frustration of waiting in line for hours at t
 ZeeHealth offers a user-friendly online platform for patients to easily search, book, and manage appointments with their healthcare providers. The app streamlines the booking process, reduces wait times, and improves patient satisfaction.
 
 **Booking App**
-You can access the deployed game <a "https://blooming-atoll-34498-8adc70b2a623.herokuapp.com/users/66abc9ab0862ff50e525300f/appointments">Here</a> 
+You can access the deployed game <a https://blooming-atoll-34498-8adc70b2a623.herokuapp.com/users/66abc9ab0862ff50e525300f/appointments">Here</a> 
 
 **TECHNOLOGIES USED**
 
